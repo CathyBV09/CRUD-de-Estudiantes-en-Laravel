@@ -19,13 +19,17 @@ El sistema maneja dos entidades principales: Estudiantes y Carreras, establecien
 
 ## 🚀 Tecnologías utilizadas
 Framework: Laravel (PHP)
+
 Base de Datos: SQLite (configuración inicial) / MySQL (Producción)
+
 Frontend/Estilos: Blade Templates y Tailwind CSS
+
 Manejo de Datos: Eloquent ORM
 
 
 ## 🔗 Enlace al proyecto
 Repositorio en GitHub: https://github.com/DuriChaska/CRUD-de-Estudiantes-en-Laravel
+
 Deploy: https://github.com/DuriChaska/CRUD-de-Estudiantes-en-Laravel
 
 ## 📝 Reflexión Personal
