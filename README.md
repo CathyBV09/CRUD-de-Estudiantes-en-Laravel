@@ -1,10 +1,10 @@
 ## Ejercicio: CRUD de Gestión Académica
 
-Nombre: Kim Du Ri Carrillo Chávez
+Nombre: Brenda Buenrostro Valencia 
 
-Número de Control: 23150326
+Número de Control: 23150310
 
-Materia: Programación Web 
+Materia: Programacion Web 
 
 ## 📌 Descripción
 
@@ -28,20 +28,9 @@ Manejo de Datos: Eloquent ORM
 
 
 ## 🔗 Enlace al proyecto
-Repositorio en GitHub: https://github.com/DuriChaska/CRUD-de-Estudiantes-en-Laravel
+Repositorio en GitHub: https://github.com/CathyBV09/CRUD-de-estudiantes
 
-Deploy: https://github.com/DuriChaska/CRUD-de-Estudiantes-en-Laravel
+Deploy: https://github.com/CathyBV09/CRUD-de-estudiantes
 
 ## 📝 Reflexión Personal
-
-Este proyecto representó una inmersión completa en el flujo de trabajo MVC de Laravel. Mi principal curva de aprendizaje se centró en la robustez de las rutas y el manejo de formularios de edición.
-
-Una dificultad inicial fue resolver un error '404 Not Found' en el formulario de actualización, lo que me enseñó la importancia crítica de usar el helper route() en lugar de rutas manuales para garantizar que el formulario apunte correctamente al método update del controlador.
-
-Otro punto clave fue dominar el uso del helper old('campo', $valor_existente) en los campos de input y select. Esta sintaxis de doble argumento es fundamental en la edición, ya que asegura:
-
-La precarga de los datos existentes del estudiante al abrir la vista.
-
-La persistencia de los datos ingresados por el usuario si la validación del servidor falla.
-
-Finalmente, la integración de Tailwind CSS demostró ser crucial para la experiencia de usuario, permitiendo crear una interfaz limpia, moderna y completamente responsiva sin necesidad de archivos CSS separados, enfocando el diseño en la usabilidad y la alineación precisa de elementos como los iconos SVG.
+Este proyecto representó una inmersión completa en el flujo de trabajo MVC de Laravel, con un enfoque principal en la creación de formularios de edición robustos. El aprendizaje clave fue la gestión crítica de rutas, donde la resolución de un error '404 Not Found' demostró la necesidad imperativa de usar el helper route() en lugar de rutas manuales para garantizar la correcta conexión con el método update del controlador.Un pilar técnico fue dominar la sintaxis del helper old('campo', $valor_existente). Esta técnica de doble argumento es esencial, ya que no solo pre-carga los datos existentes al editar, sino que también garantiza la persistencia de los datos ingresados por el usuario si la validación del servidor falla, mejorando significativamente la usabilidad. Finalmente, la integración de Tailwind CSS fue crucial para la experiencia de usuario (UX), permitiendo desarrollar una interfaz limpia, moderna y completamente responsive. Esto optimizó el diseño, enfocándose en la usabilidad y la alineación precisa de elementos sin recurrir a archivos CSS separados.
