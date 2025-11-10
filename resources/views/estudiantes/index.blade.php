@@ -3,29 +3,43 @@
 @section('content')
 
 <div class="flex justify-between items-center mb-6">
-    <h1 class="text-3xl font-bold text-gray-800">Listado de Estudiantes</h1>
+    <h1 class="text-3xl font-bold text-gray-800 flex items-center space-x-3 whitespace-nowrap">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 10h8V4H6v10z" clip-rule="evenodd"/>
+            <path d="M18 10a2 2 0 00-2-2h-3V6h3a2 2 0 012 2v6a2 2 0 01-2 2h-3v-2h3v-4z"/>
+        </svg>
+        <span>Listado de Estudiantes</span>
+    </h1>
     <a href="{{ route('estudiantes.create') }}" class="inline-flex items-center px-4 py-2 bg-sky-600 text-white font-semibold rounded-lg shadow-md hover:bg-sky-700 transition duration-150 transform hover:scale-[1.02]">
-         Agregar Nuevo Estudiante
+        ➕ Agregar Nuevo Estudiante
     </a>
 </div>
+
+@if(session('success'))
+<div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-lg" role="alert">
+    <p class="font-bold">Éxito</p>
+    <p>{{ session('success') }}</p>
+</div>
+@endif
+
 <div class="bg-white shadow-xl rounded-xl overflow-hidden">
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto"> 
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">
                         Nombre
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">
+                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">
                         Correo
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">
+                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell w-[10%]">
                         Semestre
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Carrera
                     </th>
-                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
                         Acciones
                     </th>
                 </tr>
@@ -33,26 +47,28 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @forelse ($estudiantes as $estudiante)
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td class="px-4 py-4 text-sm font-medium text-gray-900 w-1/3">
                         {{ $estudiante->nombre }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden sm:table-cell">
+                    <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500 hidden sm:table-cell">
                         {{ $estudiante->correo }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell">
+                    <td class="px-3 py-4 text-sm text-gray-500 hidden md:table-cell w-[10%]">
                         {{ $estudiante->semestre }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td class="px-3 py-4 text-sm text-gray-500">
                         {{ $estudiante->carrera->nombre ?? 'N/A' }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td class="px-4 py-4 whitespace-nowrap text-right text-sm font-medium w-[10%]">
                         <div class="flex justify-center space-x-2">
                             <a href="{{ route('estudiantes.show', $estudiante->id) }}" class="text-green-600 hover:text-green-800 transition duration-150 p-1 rounded hover:bg-green-50" title="Ver Detalles">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
                             </a>
+                            
                             <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="text-sky-600 hover:text-sky-800 transition duration-150 p-1 rounded hover:bg-sky-50" title="Editar">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zm-1.414 11.414L5 14V9l5.646-5.646 2.828 2.828L7.828 15H5v-2.172l5.646-5.646 2.828 2.828L12.172 15z"/></svg>
                             </a>
+                            
                             <form action="{{ route('estudiantes.delete', $estudiante->id) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar a {{ $estudiante->nombre }}?');" class="inline">
                                 @csrf
                                 @method('DELETE')
